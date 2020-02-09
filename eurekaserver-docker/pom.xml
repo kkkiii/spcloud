@@ -60,10 +60,10 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-
+                <version>0.4.3</version>
                 <configuration>
-                    <!--suppress UnresolvedMavenProperty -->
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <imageName>spcoud/${project.artifactId}</imageName>
+<!--                    <dockerHost>http://192.168.179.129:2376</dockerHost>-->
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
