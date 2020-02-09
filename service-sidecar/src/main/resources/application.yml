@@ -1,0 +1,20 @@
+server:
+  port: 7777
+
+spring:
+  application:
+    name: service-sidecar
+eureka:
+  client:
+    serviceUrl:
+      #      defaultZone: ${EUREKA_URI:http://localhost:7001/eureka},${EUREKA_URI:http://localhost:7002/eureka},${EUREKA_URI:http://localhost:7004/eureka}
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: false
+  instance:
+    preferIpAddress: true
+    instance-id: service-sidecar
+
+sidecar:
+  port: 8000
+  health-uri: http://localhost:8000/health.json
