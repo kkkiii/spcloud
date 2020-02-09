@@ -1,4 +1,5 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+#FROM frolvlad/alpine-oraclejdk8:slim
+FROM openjdk:8-jre-alpine
 VOLUME /tmp
 ADD eureka-server-0.0.1-SNAPSHOT.jar app.jar
 #RUN bash -c 'touch /app.jar'
