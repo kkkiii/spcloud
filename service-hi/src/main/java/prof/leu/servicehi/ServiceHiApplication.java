@@ -19,8 +19,20 @@ public class ServiceHiApplication {
     @Value("${server.port}")
     String port;
     @RequestMapping("/hi")
-    public String home(@RequestParam String name) {
+    public String home(@RequestParam(value = "name", defaultValue = "sdds") String name) {
         return "hi "+name+",i am from port:" +port;
+    }
+    @RequestMapping("/hi2")
+    public UserDetails home2(@RequestParam(value = "id" ,defaultValue = "1") String id) {
+
+        if (id.equals("1"))
+        return new UserDetails("John",
+                "john.doe@gmail.com",
+                "5168161922L",
+                "NewYork");
+        else
+            return null;
+
     }
 
 
