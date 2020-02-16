@@ -63,11 +63,10 @@
                 <artifactId>docker-maven-plugin</artifactId>
 
                 <configuration>
-                    <!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
-                    <!-- 详见：https://github.com/spotify/docker-maven-plugin    Invalid repository name ... only [a-z0-9-_.] are allowed-->
-                    <imageName>microservice-discovery-eureka-dockerfile</imageName>
-                    <!-- 指定Dockerfile所在的路径 -->
+                    <!-- 路径为：私有仓库地址/你想要的镜像路径 -->
+                    <imageName>192.168.179.131:5000/test-pull-registry</imageName>
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -75,6 +74,9 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
+
+                    <!-- 与maven配置文件settings.xml一致 -->
+                    <serverId>docker-registry</serverId>
                 </configuration>
             </plugin>
 
