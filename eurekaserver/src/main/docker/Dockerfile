@@ -1,4 +1,5 @@
-FROM java:8
+#FROM java:8
+FROM frolvlad/alpine-oraclejdk8:slim
 VOLUME /tmp
 ADD *.jar app.jar
 RUN bash -c 'touch /app.jar'
